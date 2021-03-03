@@ -24,7 +24,7 @@ VisDA 2017 dataset can be found [here](https://github.com/VisionLearningGroup/ta
 
 Run the following command in shell:
 
-```shell
+```
 visda-2017 anytime
 
 python train_dda.py --gpu_id id --dset visda --s_dset_path ../data/visda-2017/train_list.txt --t_dset_path ../data/visda-2017/validation_list.txt --test_dset_path ../data/visda-2017/validation_list.txt --pattern anytime
@@ -43,7 +43,7 @@ DomainNet dataset can be found [here](http://ai.bu.edu/M3SDA/)
 
 Run the following command in shell:
 
-```shell
+```
 DomainNet anytime
 
 python train_dda.py --gpu_id id --dset domainnet --s_dset_path ../data/domainnet/clipart_train.txt --t_dset_path ../data/domainnet/infograph_train.txt --test_dset_path ../data/domainnet/infograph_test.txt --pattern anytime
@@ -62,11 +62,11 @@ Some codes in this project are adapted from [CDAN](https://github.com/thuml/CDAN
 If you find this code useful for your research, please cite our paper:
 ```
 @inproceedings{li2019joint,
-author = {Li, Shuang and Liu, Chi Harold and Xie, Binhui and Su, Limin and Ding, Zhengming and Huang, Gao},
-title = {Joint Adversarial Domain Adaptation},
-year = {2019},
-booktitle = {Proceedings of the 27th ACM International Conference on Multimedia},
-pages = {729–737},
+author = {Shuang Li and Jinming Zhang and Wenxuan Ma and Chi Harold Liu and Wei Li},
+title = {Dynamic Domain Adaptation for Efficient Inference},
+year = {2021},
+booktitle = {IEEE Conference on Computer Vision and Pattern Recognition},
+pages = {-},
 numpages = {9}
 }
 ```
