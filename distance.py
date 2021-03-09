@@ -19,60 +19,6 @@ def MeanCosDistance(feature):
     return distance
 
 
-# sliced wasserstein computation use
-def get_theta(embedding_dim, num_samples=50):
-    theta = [
-        w / np.sqrt((w**2).sum())
-        for w in np.random.normal(size=(num_samples, embedding_dim))
-    ]
-    theta = np.asarray(theta)
-    return torch.from_numpy(theta).type(torch.FloatTensor).cuda()
-
-def sliced_wasserstein_distance(feature1,
-                                feature2,
-                                embed_dim=12,
-                                num_projections=256,
-                                p=1):
-    theta = get_theta(embed_dim, num_projections)
-    proj_target = feature2.matmul(theta.transpose(0, 1))
-    proj_source = feature1.matmul(theta.transpose(0, 1))
-    w_distance = torch.sort(proj_target.transpose(
-        0, 1), dim=1)[0] - torch.sort(proj_source.transpose(0, 1), dim=1)[0]
-
-    # calculate by the definition of p-Wasserstein distance
-    w_distance_p = torch.pow(w_distance, p)
-    print(w_distance_p.mean().size())
-    return w_distance_p.sum(dim=1)
-
-
-def MeanWssersteinDistance(feature):
-    cls_size = len(feature)
-    mean = feature[0].clone()
-    for i in range(cls_size):
-        if i != 0:
-            mean += feature[i]
-    distance = sliced_wasserstein_distance(mean, feature[0])
-    for i in range(cls_size):
-        if i != 0:
-            distance += sliced_wasserstein_distance(mean, feature[i])
-
-    return distance
-
-
-def ListWssersteinDistance(feature):
-    cls_size = len(feature)
-    mean = feature[0].clone()
-    for i in range(cls_size):
-        if i != 0:
-            mean += feature[i]
-    distance = 0.0
-    for i in range(cls_size):
-        if i != 0:
-            distance += sliced_wasserstein_distance(feature[i - 1], feature[i])
-
-    return distance
-
-
 def klDivergence(feature1, feature2):
     p = F.softmax(feature1, dim=-1)
     _kl = torch.sum(
@@ -128,8 +74,6 @@ def LastProb(feature):
 
 distance_dict = {
     "cos": MeanCosDistance,
-    "Mw": MeanWssersteinDistance,
-    "Lw": ListWssersteinDistance,
     "kl": MeanKLDistance,
     "mse": MeanMSEDistance,
     "1prob": FirstProb,
