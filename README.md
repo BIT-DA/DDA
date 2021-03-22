@@ -34,7 +34,7 @@ visda-2017 budgeted batch
 python train_dda.py --gpu_id id --dset visda --s_dset_path ../data/visda-2017/train_list.txt --t_dset_path ../data/visda-2017/validation_list.txt --test_dset_path ../data/visda-2017/validation_list.txt --pattern budget
 ```
 
-- Change `--base 4 --step 4` to `--base 7 --step  7` to run  DDA(step-7), and change the pretrain model path.
+- Change `--base 4 --step 4` to `--base 7 --step  7` to run DDA(step-7), and change the pretrained model path.
 
 - See `train_dda.py` for details. 
 *****
