@@ -626,7 +626,7 @@ if __name__ == "__main__":
                         help="use self-training learning rate")
     parser.add_argument('--stscale',
                         type=float,
-                        default=0.8,
+                        default=0.05,
                         help="self-training start scale target to source")
     parser.add_argument('--stmaxscale',
                         type=float,
@@ -648,7 +648,7 @@ if __name__ == "__main__":
         '--stdistance',
         type=str,
         default='cos',
-        choices=["cos", "Mw", "Lw", "kl", "mse", "1prob", "-1prob"])
+        choices=["cos", "kl", "mse", "1prob", "-1prob"])
     parser.add_argument('--not_stweight',
                         default=False,
                         action='store_true',
@@ -794,7 +794,7 @@ if __name__ == "__main__":
             "momentum": 0.9,
             "weight_decay": 0.0003,
             "nesterov": False
-        },  
+        },
         "lr_type": "inv",
         "lr_param": {
             "lr": args.lr,

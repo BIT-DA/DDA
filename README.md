@@ -9,7 +9,7 @@ Our work proposes a Dynamic Domain Adaptation (DDA) framework to solve the probl
 ## Dependencies
 The code runs with Python3 and requires Pytorch of version 1.3.1 or higher. Please `pip install` the following packages:
 - `numpy`
-- `torch` 
+- `torch`
 - `heaq`
 - `math`
 - `random`
@@ -19,7 +19,7 @@ The code runs with Python3 and requires Pytorch of version 1.3.1 or higher. Plea
 
 Pre-trained models for backbone MSDNet can be downloaded [here](https://github.com/BIT-DA/DDA/releases) and change the `--pretrain_path` argument.
 
-## Training 
+## Training
 VisDA 2017 dataset can be found [here](https://github.com/VisionLearningGroup/taskcv-2017-public) in the classification track.
 
 Run the following command in shell:
