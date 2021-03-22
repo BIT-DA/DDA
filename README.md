@@ -61,12 +61,11 @@ Some codes in this project are adapted from [CDAN](https://github.com/thuml/CDAN
 ## Citation
 If you find this code useful for your research, please cite our paper:
 ```
-@inproceedings{li2019joint,
+@inproceedings{li2019dynamic,
 author = {Shuang Li and Jinming Zhang and Wenxuan Ma and Chi Harold Liu and Wei Li},
 title = {Dynamic Domain Adaptation for Efficient Inference},
 year = {2021},
 booktitle = {IEEE Conference on Computer Vision and Pattern Recognition},
-pages = {-},
 numpages = {9}
 }
 ```
